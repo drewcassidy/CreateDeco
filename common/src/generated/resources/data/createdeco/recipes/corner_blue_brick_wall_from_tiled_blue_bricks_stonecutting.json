@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "createdeco:tiled_blue_bricks"
-  },
-  "result": "createdeco:corner_blue_brick_wall"
-}
