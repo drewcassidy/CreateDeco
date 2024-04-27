@@ -29,11 +29,26 @@ jobs:
       - name: make gradle wrapper executable
         run: chmod +x ./gradlew
 
+      - name: datagen
+        run: ./gradlew runDatagen
+
       - name: build
         run: ./gradlew build
 
-      - name: capture build artifacts
-        uses: actions/upload-artifact@v2
+      - name: upload fabric artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: Artifacts
-          path: build/libs/
+          name: fabric
+          path: |
+            fabric/build/libs/*.jar
+            !**/*shadow*
+            !**/*sources*
+
+      - name: upload forge artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: forge
+          path: |
+            forge/build/libs/*.jar
+            !**/*shadow*
+            !**/*sources*
